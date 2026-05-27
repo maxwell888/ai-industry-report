@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链深度调研报告 2026</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<style>
+  :root {
+    --bg: #0a0f1a;
+    --card: #111827;
+    --border: #1f2937;
+    --text: #e5e7eb;
+    --text-dim: #9ca3af;
+    --accent: #3b82f6;
+    --up: #ef4444;
+    --down: #22c55e;
+    --gold: #f59e0b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.7;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+
+  .report-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px; margin-bottom: 20px;
+  }
+  .report-card h2 {
+    font-size: 1.35rem; font-weight: 700; margin-bottom: 16px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--border);
+  }
+  .report-card h3 {
+    font-size: 1.1rem; font-weight: 700; margin: 20px 0 10px;
+    color: var(--accent);
+  }
+  .report-card h4 {
+    font-size: 0.95rem; font-weight: 700; margin: 14px 0 8px;
+    color: #c084fc;
+  }
+
+  .chain-diagram {
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+    padding: 20px 0;
+  }
+  .chain-node {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 2px solid var(--border); border-radius: 16px;
+    padding: 18px 20px; text-align: center; min-width: 140px;
+    flex: 1; max-width: 220px;
+  }
+  .chain-node.upstream { border-color: #ef4444; }
+  .chain-node.midstream { border-color: #f59e0b; }
+  .chain-node.downstream { border-color: #3b82f6; }
+
+  .data-table {
+    width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0;
+  }
+  .data-table th {
+    text-align: left; padding: 10px 8px; color: var(--text-dim);
+    font-weight: 600; border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+  .data-table td {
+    padding: 9px 8px; border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .data-table tbody tr:hover { background: rgba(59,130,246,0.04); }
+
+  .tag {
+    display: inline-block; padding: 3px 10px; border-radius: 12px;
+    font-size: 11px; font-weight: 700; margin: 2px;
+  }
+  .tag-us { background: #1e3a5f; color: #60a5fa; }
+  .tag-cn { background: #5b1a1a; color: #f87171; }
+  .tag-ipo { background: #1e4a1e; color: #4ade80; }
+  .tag-preipo { background: #4a3a0e; color: #fbbf24; }
+
+  .highlight-box {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border-left: 4px solid var(--accent); border-radius: 4px;
+    padding: 14px 18px; margin: 14px 0; font-size: 14px;
+  }
+
+  .kpi-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px; margin: 16px 0;
+  }
+  .kpi-card {
+    background: linear-gradient(135deg, #1e293b, #111827);
+    border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; text-align: center;
+  }
+  .kpi-card .kpi-val { font-size: 22px; font-weight: 800; }
+  .kpi-card .kpi-lbl { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+
+  @media (max-width: 768px) {
+    .report-card { padding: 16px; }
+    .data-table { font-size: 11px; }
+    .data-table th, .data-table td { padding: 6px 4px; }
+    .chain-node { min-width: 110px; padding: 12px 14px; }
+  }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    .report-card { background: #fff; border: 1px solid #ccc; break-inside: avoid; }
+    .data-table th { background: #f3f4f6; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 封面 -->
+<div class="max-w-5xl mx-auto px-4 py-8">
+  <div class="text-center mb-10 py-10">
+    <div class="text-6xl mb-4">🤖</div>
+    <h1 class="text-3xl md:text-4xl font-extrabold mb-3">AI 产业链深度调研报告</h1>
+    <p class="text-lg" style="color:var(--text-dim)">从芯片到应用 · 美股到 A 股 · 上市公司到独角兽</p>
+    <div class="flex justify-center gap-4 mt-6">
+      <span class="tag tag-us">美股</span>
+      <span class="tag tag-cn">A股/港股</span>
+      <span class="tag tag-ipo">已上市</span>
+      <span class="tag tag-preipo">拟上市</span>
+    </div>
+    <p class="mt-6 text-sm" style="color:var(--text-dim)">报告日期：2026年5月27日 · 数据截至2026年Q1</p>
+  </div>
+
+  <!-- ==================== 执行摘要 ==================== -->
+  <div class="report-card">
+    <h2>📋 执行摘要</h2>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--up)">$2.59万亿</div>
+        <div class="kpi-lbl">2026年全球AI支出（+47%）</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--accent)">$5000亿+</div>
+        <div class="kpi-lbl">全球AI芯片市场规模</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--gold)">8520亿</div>
+        <div class="kpi-lbl">OpenAI估值（美元）</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--down)">30+</div>
+        <div class="kpi-lbl">中国AI独角兽公司数量</div>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <strong>核心判断：</strong>AI产业链正从"芯片紧缺"向"算力过剩"过渡（2026-2027），利润池从上游GPU向中游模型和下游应用迁移。<br>
+      <strong>最大变量：</strong>DeepSeek的开源策略重塑了模型层竞争格局，中国在自动驾驶（华为ADS）和机器人（宇树科技）赛道建立独特优势。<br>
+      <strong>关键风险：</strong>美国对华芯片出口管制持续升级，HBM和先进制程仍是最大瓶颈。
+    </div>
+  </div>
+
+  <!-- ==================== 产业链全景图 ==================== -->
+  <div class="report-card">
+    <h2>🗺️ AI 产业链全景图</h2>
+    <div class="chain-diagram">
+      <div class="chain-node upstream">
+        <div class="text-2xl mb-2">🔌</div>
+        <div class="font-bold">上游·算力</div>
+        <div class="text-xs" style="color:var(--text-dim)">芯片 / 光模块</div>
+        <div class="text-xs" style="color:var(--text-dim)">服务器 / 数据中心</div>
+        <div class="text-xs mt-1" style="color:#ef4444">利润占比 65-85%</div>
+      </div>
+      <div class="chain-node midstream">
+        <div class="text-2xl mb-2">🧠</div>
+        <div class="font-bold">中游·模型</div>
+        <div class="text-xs" style="color:var(--text-dim)">大模型 / 开源</div>
+        <div class="text-xs" style="color:var(--text-dim)">端侧模型</div>
+        <div class="text-xs mt-1" style="color:#f59e0b">格局剧烈变化</div>
+      </div>
+      <div class="chain-node downstream">
+        <div class="text-2xl mb-2">🎯</div>
+        <div class="font-bold">下游·应用</div>
+        <div class="text-xs" style="color:var(--text-dim)">办公 / 搜索 / 编程</div>
+        <div class="text-xs" style="color:var(--text-dim)">自动驾驶 / 机器人</div>
+        <div class="text-xs mt-1" style="color:#3b82f6">商业化加速</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 第一章：上游 ==================== -->
+  <div class="report-card">
+    <h2>🔌 第一章 · 上游算力层</h2>
+    <p style="color:var(--text-dim);font-size:14px">GPU → HBM → 光模块 → 服务器 → 数据中心 → 液冷散热，利润最集中的环节。</p>
+
+    <!-- 1.1 AI芯片 -->
+    <h3>1.1 AI芯片</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>公司</th><th>市场</th><th>市值/估值</th><th>核心产品</th><th>竞争力评估</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>NVIDIA</strong></td>
+          <td><span class="tag tag-us">美股</span></td>
+          <td>~$3.2万亿</td>
+          <td>Vera Rubin (288GB HBM4)</td>
+          <td>⭐️⭐️⭐️⭐️⭐️ 绝对龙头，份额~80%</td>
+        </tr>
+        <tr>
+          <td><strong>AMD</strong></td>
+          <td><span class="tag tag-us">美股</span></td>
+          <td>~$1800亿</td>
+          <td>MI455X (432GB HBM4)</td>
+          <td>⭐️⭐️⭐️ 追赶者，性价比策略</td>
+        </tr>
+        <tr>
+          <td><strong>Intel</strong></td>
+          <td><span class="tag tag-us">美股</span></td>
+          <td>~$6280亿</td>
+          <td>Gaudi 3 / Falcon Shores</td>
+          <td>⭐️⭐️ 转型中，制程落后台积电</td>
+        </tr>
+        <tr>
+          <td><strong>寒武纪</strong></td>
+          <td><span class="tag tag-cn">A股 688256</span></td>
+          <td>~8000亿元</td>
+          <td>思元590（达A100 80%）</td>
+          <td>⭐️⭐️⭐️⭐️ 国产替代核心，2025首度扭亏</td>
+        </tr>
+        <tr>
+          <td><strong>海光信息</strong></td>
+          <td><span class="tag tag-cn">A股 688041</span></td>
+          <td>~7200亿元</td>
+          <td>深算三号（兼容CUDA）</td>
+          <td>⭐️⭐️⭐️⭐️ 国产营收利润双冠</td>
+        </tr>
+        <tr>
+          <td><strong>景嘉微</strong></td>
+          <td><span class="tag tag-cn">A股 300474</span></td>
+          <td>~341亿元</td>
+          <td>GPU芯片</td>
+          <td>⭐️⭐️ 体量较小，生态不足</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 1.2 AI服务器 -->
+    <h3>1.2 AI服务器</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>公司</th><th>市场</th><th>市值</th><th>2025年营收</th><th>特点</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>工业富联</strong></td>
+          <td><span class="tag tag-cn">A股 601138</span></td>
+          <td>~1.3万亿</td>
+          <td>前三季净利225亿</td>
+          <td>全球AI服务器代工份额超40%</td>
+        </tr>
+        <tr>
+          <td><strong>浪潮信息</strong></td>
+          <td><span class="tag tag-cn">A股 000977</span></td>
+          <td>~1060亿</td>
+          <td>1207亿(+99.5%)</td>
+          <td>国内品牌市占率52%，毛利率仅4.55%</td>
+        </tr>
+        <tr>
+          <td><strong>中科曙光</strong></td>
+          <td><span class="tag tag-cn">A股 603019</span></td>
+          <td>~1320亿</td>
+          <td>稳步增长</td>
+          <td>毛利率20%+，绑定海光DCU</td>
+        </tr>
+        <tr>
+          <td><strong>Supermicro</strong></td>
+          <td><span class="tag tag-us">美股</span></td>
+          <td>~$450亿</td>
+          <td>~$300亿</td>
+          <td>液冷服务器先行者</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 1.3 光模块 -->
+    <h3>1.3 光模块/CPO</h3>
+    <div class="highlight-box">
+      <strong>核心趋势：</strong>"易中天"（中际旭创、新易盛、天孚通信）三巨头合计市值一度超茅台（1.89万亿），是中国在AI硬件环节最具全球竞争力的细分领域。
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr><th>公司</th><th>市场</th><th>市值</th><th>2025营收</th><th>全球地位</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>中际旭创</strong></td>
+          <td><span class="tag tag-cn">A股 300308</span></td>
+          <td>~万亿</td>
+          <td>382亿(+60%)，净利108亿(+109%)</td>
+          <td>800G全球份额超40%，1.6T率先出货</td>
+        </tr>
+        <tr>
+          <td><strong>新易盛</strong></td>
+          <td><span class="tag tag-cn">A股 300502</span></td>
+          <td>~6100亿</td>
+          <td>248亿(+187%)</td>
+          <td>高速光模块第二极</td>
+        </tr>
+        <tr>
+          <td><strong>天孚通信</strong></td>
+          <td><span class="tag tag-cn">A股 300394</span></td>
+          <td>~2900亿</td>
+          <td>快速增长</td>
+          <td>光器件龙头</td>
+        </tr>
+        <tr>
+          <td><strong>Coherent</strong></td>
+          <td><span class="tag tag-us">美股</span></td>
+          <td>$426亿</td>
+          <td>—</td>
+          <td>Lumentum/Coherent获英伟达各$20亿锁定</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 1.4 存储/HBM -->
+    <h3>1.4 存储 / HBM</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>环节</th><th>国际龙头</th><th>中国对标</th><th>关键数据</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HBM</td>
+          <td>SK海力士(62%份额)、三星、美光</td>
+          <td>尚无直接对标</td>
+          <td>HBM市场2026年TAM ~$500亿+，三大厂产能售罄至2026年底</td>
+        </tr>
+        <tr>
+          <td>DRAM</td>
+          <td>三星、SK海力士、美光</td>
+          <td>长鑫存储(CXMT)</td>
+          <td>CXMT全球DRAM份额~8%（收入+700%），全球第四</td>
+        </tr>
+        <tr>
+          <td>NAND</td>
+          <td>三星、SK海力士、铠侠</td>
+          <td>长江存储(YMTC)</td>
+          <td>YMTC份额~13%，232/294层量产，IPO估值5000-8000亿</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 1.5 数据中心 & 液冷 -->
+    <h3>1.5 数据中心 & 液冷散热</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>环节</th><th>美股代表</th><th>A股代表</th><th>2026关键指标</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>云计算</td>
+          <td>AWS($1500亿ARR)、Azure($1390亿)、GCP($800亿)</td>
+          <td>阿里云(AI云份额38%)、华为云(13%)</td>
+          <td>三巨头Q1云收入合计$923亿；CAPEX合计~$5000亿</td>
+        </tr>
+        <tr>
+          <td>液冷</td>
+          <td>Vertiv($300亿+)</td>
+          <td>英维克(~955亿)、高澜股份(~135亿)</td>
+          <td>全球液冷市场2026年~$165亿，渗透率从22%升至37%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 第二章：中游 ==================== -->
+  <div class="report-card">
+    <h2>🧠 第二章 · 中游模型层</h2>
+    <p style="color:var(--text-dim);font-size:14px">开源与闭源差距缩至0.3%。MoE架构标配化，中国模型占据开源头部。</p>
+
+    <!-- 2.1 海外大模型 -->
+    <h3>2.1 海外大模型公司</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>公司</th><th>最新估值</th><th>核心模型</th><th>上市动态</th><th>竞争力评估</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>OpenAI</strong></td>
+          <td>$8520亿(2026.3)</td>
+          <td>GPT-5.5</td>
+          <td><span class="tag tag-preipo">Q3/Q4 2026 IPO</span></td>
+          <td>⭐️⭐️⭐️⭐️⭐️ 领军者但亏损严重</td>
+        </tr>
+        <tr>
+          <td><strong>Anthropic</strong></td>
+          <td>$9000亿(2026.5)</td>
+          <td>Claude Opus 4.7</td>
+          <td><span class="tag tag-preipo">2026.10 IPO</span></td>
+          <td>⭐️⭐️⭐️⭐️⭐️ 反超OpenAI，毛利率70%+</td>
+        </tr>
+        <tr>
+          <td><strong>Google DeepMind</strong></td>
+          <td>Alphabet ~$4.6万亿</td>
+          <td>Gemini Omni</td>
+          <td><span class="tag tag-us">已上市 GOOGL</span></td>
+          <td>⭐️⭐️⭐️⭐️⭐️ 全模态+TPU双芯片战略</td>
+        </tr>
+        <tr>
+          <td><strong>Meta AI</strong></td>
+          <td>Meta ~$1.6万亿</td>
+          <td>Llama 4 (MoE)</td>
+          <td><span class="tag tag-us">已上市 META</span></td>
+          <td>⭐️⭐️⭐️⭐️ 开源路线，受欧盟限制</td>
+        </tr>
+        <tr>
+          <td><strong>xAI</strong></td>
+          <td>$2000亿</td>
+          <td>Grok 4.1</td>
+          <td><span class="tag tag-preipo">未上市</span></td>
+          <td>⭐️⭐️⭐️⭐️ 月烧$10亿，百万卡计划</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 2.2 中国大模型 -->
+    <h3>2.2 中国大模型公司</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>公司</th><th>估值/市值</th><th>核心模型</th><th>上市状态</th><th>关键指标</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>百度/文心</strong></td><td>~3441亿港元</td><td>文心5.1(2.4万亿参数)</td><td><span class="tag tag-cn">港股 9888</span></td><td>Q1 AI收入136亿，首次过半(52%)</td></tr>
+        <tr><td><strong>阿里/通义</strong></td><td>~3.3万亿港元</td><td>Qwen开源家族</td><td><span class="tag tag-cn">港股 9988</span></td><td>下载量破10亿，衍生模型20万+</td></tr>
+        <tr><td><strong>字节/豆包</strong></td><td>整体$6000亿+</td><td>豆包</td><td><span class="tag tag-preipo">未上市</span></td><td>月活3.45亿（国内第一），AI年投1600亿</td></tr>
+        <tr><td><strong>DeepSeek</strong></td><td>$450-500亿</td><td>V4 Pro(SWE-Bench 80.6%)</td><td><span class="tag tag-preipo">首轮融资中</span></td><td>国家大基金领投，开源最强代码模型</td></tr>
+        <tr><td><strong>智谱AI</strong></td><td>>511亿港元</td><td>GLM-5.1</td><td><span class="tag tag-cn">港股 2513</span></td><td>第一家港股上市大模型公司</td></tr>
+        <tr><td><strong>MiniMax</strong></td><td>~500亿港元(IPO)</td><td>多模态模型</td><td><span class="tag tag-cn">港股 0100</span></td><td>73%收入来自海外</td></tr>
+        <tr><td><strong>月之暗面</strong></td><td>$200亿</td><td>Kimi K2.5</td><td><span class="tag tag-preipo">启动赴港IPO</span></td><td>ARR一月破$1亿</td></tr>
+        <tr><td><strong>科大讯飞</strong></td><td>~1170亿元</td><td>星火(全国产算力)</td><td><span class="tag tag-cn">A股 002230</span></td><td>Q1扣非亏损4.3亿，C端月活仅575万</td></tr>
+        <tr><td><strong>昆仑万维</strong></td><td>~583亿元</td><td>天工Agent(GAIA全球第一)</td><td><span class="tag tag-cn">A股 300418</span></td><td>2025营收81.98亿(+45%)，持续亏损</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 2.3 已掉队/转型 -->
+    <h3>2.3 格局变化：掉队与转型</h3>
+    <div class="highlight-box">
+      <strong>百川智能：</strong>2025年4月放弃通用大模型，全面转向AI医疗，联合创始人大量离职。<br>
+      <strong>零一万物：</strong>放弃万亿参数预训练，全面转向ToB企业级应用，多位高管离职，2025年全年无融资。<br>
+      <strong>教训：</strong>模型层"赢家通吃"效应明显，资金和人才向头部集中，腰部公司生存艰难。
+    </div>
+  </div>
+
+  <!-- ==================== 第三章：下游 ==================== -->
+  <div class="report-card">
+    <h2>🎯 第三章 · 下游应用层</h2>
+    <p style="color:var(--text-dim);font-size:14px">2025-2026年从"技术验证"到"商业加速"，微软Copilot、Cursor、华为ADS已证明付费意愿。</p>
+
+    <h3>3.1 AI+办公 / 搜索 / 编程</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>子领域</th><th>海外龙头</th><th>中国对标</th><th>市值/关键数据</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AI办公</td>
+          <td>Microsoft 365 Copilot</td>
+          <td>金山办公(688111)、万兴科技(300624)</td>
+          <td>Copilot年化$58亿+，付费2000万+席位；金山Q1营收16亿(+24%)</td>
+        </tr>
+        <tr>
+          <td>AI搜索</td>
+          <td>Google AI Overviews(20亿MAU)</td>
+          <td>三六零纳米AI搜索</td>
+          <td>360营收86.93亿(+9.4%)，国内总榜第2</td>
+        </tr>
+        <tr>
+          <td>AI编程</td>
+          <td>GitHub Copilot(470万付费)、Cursor($20亿ARR)</td>
+          <td>商汤代码小浣熊(1500万+用户)</td>
+          <td>Cursor估值$500亿，Anysphere创B2B SaaS最快增长纪录</td>
+        </tr>
+        <tr>
+          <td>AI教育</td>
+          <td>Duolingo(DAU 5000万+)</td>
+          <td>科大讯飞教育、好未来MathGPT</td>
+          <td>好未来Q3营收$6.06亿(+62.4%)，学习机高端市场第一</td>
+        </tr>
+        <tr>
+          <td>AI医疗</td>
+          <td>—</td>
+          <td>卫宁健康(WiNGPT 3.0)、鹰瞳科技(02251)</td>
+          <td>卫宁覆盖100+临床场景，150家医院部署</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 3.2 自动驾驶 -->
+    <h3>3.2 AI+自动驾驶 ⭐️ 中国优势赛道</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>公司</th><th>估值/市值</th><th>市场</th><th>核心进展</th><th>竞争力</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>特斯拉 FSD</strong></td>
+          <td>~$1.5万亿</td>
+          <td><span class="tag tag-us">美股</span></td>
+          <td>累计100亿英里；Cybercab下线</td>
+          <td>⭐️⭐️⭐️⭐️⭐️ 数据飞轮，但仍为L2</td>
+        </tr>
+        <tr>
+          <td><strong>Waymo</strong></td>
+          <td>$1260亿</td>
+          <td><span class="tag tag-us">美股(Alphabet)</span></td>
+          <td>6城运营，周付费40万+单</td>
+          <td>⭐️⭐️⭐️⭐️⭐️ L4全球领先</td>
+        </tr>
+        <tr>
+          <td><strong>华为ADS/引望</strong></td>
+          <td>1150亿(B轮前)</td>
+          <td><span class="tag tag-cn">未上市</span></td>
+          <td>2025营收450亿(+72%)，装机100万+台</td>
+          <td>⭐️⭐️⭐️⭐️⭐️ 中国智驾方案标杆</td>
+        </tr>
+        <tr>
+          <td><strong>百度Apollo</strong></td>
+          <td>~$573亿(研报)</td>
+          <td><span class="tag tag-cn">港股 9888</span></td>
+          <td>累计订单2200万，武汉盈亏平衡</td>
+          <td>⭐️⭐️⭐️⭐️ 全球最大Robotaxi队</td>
+        </tr>
+        <tr>
+          <td><strong>Momenta</strong></td>
+          <td>IPO预期>千亿</td>
+          <td><span class="tag tag-preipo">密递港交所</span></td>
+          <td>定点170+款车型，城市NOA市占率61%</td>
+          <td>⭐️⭐️⭐️⭐️ 第三方智驾龙头</td>
+        </tr>
+        <tr>
+          <td><strong>文远知行</strong></td>
+          <td>~196亿港元</td>
+          <td><span class="tag tag-cn">港股 0800</span></td>
+          <td>11国30+城市，L4收入全球第二(21.8%)</td>
+          <td>⭐️⭐️⭐️ 国际化布局领先</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 3.3 机器人 -->
+    <h3>3.3 AI+机器人/具身智能 ⭐️ 新兴赛道</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>公司</th><th>估值</th><th>市场</th><th>核心进展</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>特斯拉 Optimus</strong></td>
+          <td>$1.5万亿(整体)</td>
+          <td><span class="tag tag-us">美股</span></td>
+          <td>Gen 2工厂测试，目标年产100万台，售价$2-3万</td>
+        </tr>
+        <tr>
+          <td><strong>Figure AI</strong></td>
+          <td>$390亿</td>
+          <td><span class="tag tag-us">未上市</span></td>
+          <td>Figure 02工业试点，年产目标1.2万台</td>
+        </tr>
+        <tr>
+          <td><strong>宇树科技</strong></td>
+          <td>~120亿元</td>
+          <td><span class="tag tag-preipo">拟赴港上市</span></td>
+          <td>2025出货5500+台(双足全球第一)，净利超6亿，毛利率35%</td>
+        </tr>
+        <tr>
+          <td><strong>优必选</strong></td>
+          <td>~300-500亿港元</td>
+          <td><span class="tag tag-cn">港股 09880</span></td>
+          <td>Walker系列订单约11亿，2025出货超1000台，仍亏损7亿+</td>
+        </tr>
+        <tr>
+          <td><strong>傅利叶智能</strong></td>
+          <td>150亿+港元</td>
+          <td><span class="tag tag-cn">港股新上市</span></td>
+          <td>GR-2小批量试产，与商汤合作多模态大模型</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 第四章：未上市 ==================== -->
+  <div class="report-card">
+    <h2>🚀 第四章 · 未上市/拟IPO公司雷达</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>公司</th><th>估值(美元)</th><th>所属环节</th><th>上市进度</th><th>关注要点</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>字节跳动</strong></td>
+          <td>$6000亿+</td>
+          <td>模型+应用</td>
+          <td>未明确IPO时间</td>
+          <td>豆包月活3.45亿，AI年投1600亿</td>
+        </tr>
+        <tr>
+          <td><strong>华为引望</strong></td>
+          <td>1150亿(RMB)</td>
+          <td>自动驾驶</td>
+          <td>B轮融资中</td>
+          <td>ADS装机100万+台，中国智驾方案标杆</td>
+        </tr>
+        <tr>
+          <td><strong>长江存储</strong></td>
+          <td>5000-8000亿(RMB)</td>
+          <td>存储芯片</td>
+          <td>筹备科创板</td>
+          <td>NAND全球份额13%，Xtacking 4.0</td>
+        </tr>
+        <tr>
+          <td><strong>DeepSeek</strong></td>
+          <td>$450-500亿</td>
+          <td>大模型</td>
+          <td>首轮融资中</td>
+          <td>国家大基金领投，开源最强代码模型</td>
+        </tr>
+        <tr>
+          <td><strong>月之暗面</strong></td>
+          <td>$200亿</td>
+          <td>大模型</td>
+          <td>启动赴港IPO</td>
+          <td>Kimi ARR一月破$1亿</td>
+        </tr>
+        <tr>
+          <td><strong>宇树科技</strong></td>
+          <td>~120亿(RMB)</td>
+          <td>机器人</td>
+          <td>拟赴港上市</td>
+          <td>双足出货全球第一，净利润超6亿</td>
+        </tr>
+        <tr>
+          <td><strong>Momenta</strong></td>
+          <td>>1000亿(RMB)</td>
+          <td>自动驾驶</td>
+          <td>密递港交所</td>
+          <td>城市NOA市占率61%</td>
+        </tr>
+        <tr>
+          <td><strong>面壁智能</strong></td>
+          <td>独角兽(~$15亿+)</td>
+          <td>端侧模型</td>
+          <td>未明确</td>
+          <td>MiniCPM上车长安/吉利，2400万下载</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 第五章：中美对标 ==================== -->
+  <div class="report-card">
+    <h2>⚖️ 第五章 · 中美AI产业链对标总结</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>产业链环节</th><th>美股龙头</th><th>A股/港股对标</th><th>差距判断</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AI训练芯片</td>
+          <td>NVIDIA (份额~80%)</td>
+          <td>寒武纪、海光信息</td>
+          <td>🔴 落后1-2代，受出口管制制约</td>
+        </tr>
+        <tr>
+          <td>AI推理芯片</td>
+          <td>NVIDIA/AMD/Intel</td>
+          <td>华为昇腾、寒武纪</td>
+          <td>🟡 昇腾910B接近A100，生态不足</td>
+        </tr>
+        <tr>
+          <td>高速光模块</td>
+          <td>Coherent/Lumentum</td>
+          <td>中际旭创、新易盛</td>
+          <td>🟢 全球领先，800G份额超40%</td>
+        </tr>
+        <tr>
+          <td>HBM存储</td>
+          <td>SK海力士/三星/美光</td>
+          <td>尚无直接对标</td>
+          <td>🔴 完全受制于人，最大瓶颈</td>
+        </tr>
+        <tr>
+          <td>AI服务器</td>
+          <td>Dell/HPE/SMCI</td>
+          <td>工业富联、浪潮、曙光</td>
+          <td>🟢 全球代工份额40%+</td>
+        </tr>
+        <tr>
+          <td>液冷散热</td>
+          <td>Vertiv</td>
+          <td>英维克、高澜股份</td>
+          <td>🟢 英维克国内市占60%+</td>
+        </tr>
+        <tr>
+          <td>大模型</td>
+          <td>OpenAI/Anthropic/Google</td>
+          <td>百度/阿里/字节/DeepSeek</td>
+          <td>🟡 开源差距缩至0.3%，闭源仍有差距</td>
+        </tr>
+        <tr>
+          <td>AI编程</td>
+          <td>GitHub Copilot/Cursor</td>
+          <td>商汤小浣熊</td>
+          <td>🟡 产品力差距明显</td>
+        </tr>
+        <tr>
+          <td>自动驾驶</td>
+          <td>Tesla/Waymo</td>
+          <td>华为ADS/百度Apollo</td>
+          <td>🟢 中国L4运营规模全球领先</td>
+        </tr>
+        <tr>
+          <td>具身智能</td>
+          <td>Tesla Optimus/Figure</td>
+          <td>宇树科技/优必选</td>
+          <td>🟢 中国硬件供应链优势明显</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="highlight-box">
+      🟢 = 全球竞争力 &nbsp; 🟡 = 追赶中 &nbsp; 🔴 = 明显落后/受制于人<br><br>
+      <strong>结论：</strong>中国在<strong>光模块、AI服务器、液冷、自动驾驶运营、机器人硬件</strong>五个环节具备全球竞争力；<strong>AI芯片和HBM</strong>仍是最大短板；<strong>大模型</strong>领域开源路线缩小差距，但商业化能力远逊于美国。
+    </div>
+  </div>
+
+  
+  <!-- ==================== 研报专章：华尔街+国内券商目标价 ==================== -->
+  <div class="report-card">
+    <h2>📊 研报专章 · 华尔街 & 国内券商目标价汇总</h2>
+    <p style="color:var(--text-dim);font-size:14px">数据来源：Goldman Sachs、Morgan Stanley、BofA、JPMorgan、Citi、UBS、中信、华泰、中金等 · 截至2026年5月</p>
+
+    <!-- 美股芯片 -->
+    <h3>🇺🇸 美股 · AI芯片/算力</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>标的</th><th>当前价($)</th><th>GS目标价</th><th>MS目标价</th><th>共识目标价</th><th>最高目标价</th><th>上涨空间</th><th>共识评级</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>NVDA</strong></td><td>~$222</td><td>$285 买入</td><td>$285 超配</td><td>$285</td><td>$350</td><td style="color:#22c55e">+28%</td><td>强力买入(39/1/1)</td>
+        </tr>
+        <tr>
+          <td><strong>AMD</strong></td><td>~$180</td><td>$450 买入</td><td>$410 持有</td><td>$432</td><td>$530</td><td style="color:#22c55e">+140%</td><td>强烈买入(26/8)</td>
+        </tr>
+        <tr>
+          <td><strong>INTC</strong></td><td>~$70</td><td>未覆盖</td><td>$73 持有</td><td>$82</td><td>$150</td><td style="color:var(--gold)">+17%</td><td>持有(12/25/4) 高度分歧</td>
+        </tr>
+        <tr>
+          <td><strong>AVGO</strong></td><td>~$327</td><td>$435 买入</td><td>$470 超配</td><td>$440</td><td>$545</td><td style="color:#22c55e">+35%</td><td>强力买入(29/0/0)</td>
+        </tr>
+        <tr>
+          <td><strong>MRVL</strong></td><td>~$182</td><td>$125 中性</td><td>$103 持有</td><td>$150</td><td>$200</td><td style="color:#ef4444">-18%</td><td>强力买入但目标价已低于现价</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 美股AI云 -->
+    <h3>🇺🇸 美股 · AI云/基础设施</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>标的</th><th>当前价($)</th><th>GS目标价</th><th>MS目标价</th><th>共识目标价</th><th>最高目标价</th><th>上涨空间</th><th>核心催化剂</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>MSFT</strong></td><td>~$400</td><td>$655 买入</td><td>$650 超配</td><td>$597</td><td>$680</td><td style="color:#22c55e">+49%</td><td>Copilot ARR $58亿，Azure AI年化$130亿</td>
+        </tr>
+        <tr>
+          <td><strong>GOOGL</strong></td><td>~$389</td><td>$450 买入</td><td>--</td><td>$426</td><td>$515</td><td style="color:#22c55e">+10%</td><td>AI Overviews 20亿MAU，搜索$604亿(+19%)</td>
+        </tr>
+        <tr>
+          <td><strong>AMZN</strong></td><td>~$267</td><td>$325 买入</td><td>$300-350 超配</td><td>$300</td><td>$370</td><td style="color:#22c55e">+12%</td><td>AWS $376亿(+28%)，AI积压$3,640亿</td>
+        </tr>
+        <tr>
+          <td><strong>META</strong></td><td>~$526</td><td>$870 买入</td><td>$775-1000 超配</td><td>$775</td><td>$870</td><td style="color:#22c55e">+47%</td><td>15x 2027E PE，PEG 0.9x十年低位</td>
+        </tr>
+        <tr>
+          <td><strong>ORCL</strong></td><td>~$189</td><td>$220/240 分歧</td><td>--</td><td>$261</td><td>$400</td><td style="color:#22c55e">+38%</td><td>RPO $5,530亿(+325%)，OpenAI集中度风险</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 美股AI应用 -->
+    <h3>🇺🇸 美股 · AI应用</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>标的</th><th>当前价($)</th><th>GS目标价</th><th>MS目标价</th><th>共识目标价</th><th>上涨空间</th><th>估值争议</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>PLTR</strong></td><td>~$142</td><td>未覆盖</td><td>$205 持有</td><td>$193</td><td style="color:#22c55e">+36%</td><td>P/S 109x，Michael Burry做空</td>
+        </tr>
+        <tr>
+          <td><strong>CRM</strong></td><td>~$189</td><td>$281 买入</td><td>$287 超配</td><td>$280</td><td style="color:#22c55e">+48%</td><td>Agentforce ARR $8亿，22x PE十年低位</td>
+        </tr>
+        <tr>
+          <td><strong>TSLA</strong></td><td>~$410</td><td>$375 中性</td><td>$415 持有</td><td>$420</td><td style="color:var(--gold)">+2%</td><td>$145-$600 极差，核心汽车vs AI平台分歧</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- A股芯片 -->
+    <h3>🇨🇳 A股 · AI芯片</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>标的</th><th>代码</th><th>当前价(¥)</th><th>GS目标价</th><th>MS目标价</th><th>国内最高目标价</th><th>上涨空间</th><th>2026E净利</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>寒武纪</strong></td><td>688256</td><td>~1,411</td><td>2,406 买入</td><td>1,588 增持</td><td>2,406 (高盛)</td><td style="color:#22c55e">+71%</td><td>61-68亿 (高盛/第一上海)</td>
+        </tr>
+        <tr>
+          <td><strong>海光信息</strong></td><td>688041</td><td>~341</td><td>--</td><td>--</td><td>350 (国泰海通)</td><td style="color:var(--gold)">+3%</td><td>46.5亿 (+83%) 24机构一致</td>
+        </tr>
+        <tr>
+          <td><strong>景嘉微</strong></td><td>300474</td><td>~65</td><td>未覆盖</td><td>未覆盖</td><td>86.5 (海通国际)</td><td style="color:#22c55e">+34%</td><td>0.47亿 (仍处亏损)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- A股光模块 -->
+    <h3>🇨🇳 A股 · 光模块/CPO</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>标的</th><th>代码</th><th>当前价(¥)</th><th>GS目标价</th><th>MS目标价</th><th>国内最高目标价</th><th>上涨空间</th><th>2026E净利</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>中际旭创</strong></td><td>300308</td><td>~1,103</td><td>1,187 买入</td><td>435 增持</td><td>1,187 (高盛)</td><td style="color:var(--gold)">+8%</td><td>213.7亿 (+98%) 23机构一致</td>
+        </tr>
+        <tr>
+          <td><strong>新易盛</strong></td><td>300502</td><td>~700</td><td>518 买入</td><td>255 减持</td><td>518 (高盛)</td><td style="color:#ef4444">-26%</td><td>125-194亿 (券商分歧大)</td>
+        </tr>
+        <tr>
+          <td><strong>天孚通信</strong></td><td>300394</td><td>~407</td><td>--</td><td>--</td><td>465 (华泰)</td><td style="color:#22c55e">+14%</td><td>33.1亿 (+64%) 14机构一致</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- A股服务器 -->
+    <h3>🇨🇳 A股 · AI服务器/液冷</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>标的</th><th>代码</th><th>当前价(¥)</th><th>GS/花旗目标价</th><th>国内最高目标价</th><th>上涨空间</th><th>2026E净利</th><th>评级分歧</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>工业富联</strong></td><td>601138</td><td>~70</td><td>花旗101 / GS 93 买入</td><td>100 (华泰)</td><td style="color:#22c55e">+44%</td><td>560-769亿</td><td>一致看多，分歧最小</td>
+        </tr>
+        <tr>
+          <td><strong>浪潮信息</strong></td><td>000977</td><td>~67</td><td>GS 76.5 中性(降级)</td><td>100 (中信)</td><td style="color:#22c55e">+49%</td><td>36.1亿 (+50%)</td><td>GS降级 vs 国内买入</td>
+        </tr>
+        <tr>
+          <td><strong>中科曙光</strong></td><td>603019</td><td>~94</td><td>未覆盖</td><td>134 (国泰海通)</td><td style="color:#22c55e">+42%</td><td>29.3亿 (+34%)</td><td>内资一致看好</td>
+        </tr>
+        <tr>
+          <td><strong>英维克</strong></td><td>002837</td><td>~99</td><td>花旗60 卖出</td><td>130 (群益)</td><td style="color:#22c55e">+32%</td><td>9.3-11.8亿</td><td>花旗卖出 vs 国内买入</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- A股应用 -->
+    <h3>🇨🇳 A股 · AI应用</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>标的</th><th>代码</th><th>当前价(¥)</th><th>GS/MS目标价</th><th>国内最高目标价</th><th>上涨空间</th><th>2026E净利</th><th>核心看点</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>科大讯飞</strong></td><td>002230</td><td>~49</td><td>GS 67.5 / MS 63-67</td><td>74 (信达)</td><td style="color:#22c55e">+37%</td><td>11-17亿</td><td>星火X2，训练成本降70%</td>
+        </tr>
+        <tr>
+          <td><strong>金山办公</strong></td><td>688111</td><td>~243</td><td>--</td><td>433 (华创)</td><td style="color:#22c55e">+78%</td><td>25.1亿 (32机构一致)</td><td>WPS AI月活8013万(+307%)</td>
+        </tr>
+        <tr>
+          <td><strong>万兴科技</strong></td><td>300624</td><td>~57</td><td>--</td><td>211亿市值</td><td style="color:#22c55e">+38%</td><td>0.6亿 (扭亏期)</td><td>境外收入占93%，AI+视频</td>
+        </tr>
+        <tr>
+          <td><strong>三六零</strong></td><td>601360</td><td>~11</td><td>--</td><td>15 (国泰海通)</td><td style="color:#22c55e">+38%</td><td>2.6亿 (2025扭亏)</td><td>纳米AI搜索国内第2</td>
+        </tr>
+        <tr>
+          <td><strong>昆仑万维</strong></td><td>300418</td><td>~48</td><td>--</td><td>74 (浙商)</td><td style="color:#22c55e">+55%</td><td>-0.9~+4.5亿 (严重分歧)</td><td>天工Agent GAIA全球第一</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 港股 -->
+    <h3>🇭🇰 港股 · AI核心标的</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>标的</th><th>代码</th><th>当前价(HK$)</th><th>GS目标价</th><th>MS/JPM目标价</th><th>最高目标价</th><th>上涨空间</th><th>核心看多逻辑</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>百度</strong></td><td>9888</td><td>~128</td><td>150 买入</td><td>MS 135 / JPM 225</td><td>225 (JPM)</td><td style="color:#22c55e">+76%</td><td>AI收入占比52%，萝卜快跑$429亿估值</td>
+        </tr>
+        <tr>
+          <td><strong>阿里巴巴</strong></td><td>9988</td><td>~128</td><td>180 买入</td><td>MS 180-190</td><td>228 (麦格理)</td><td style="color:#22c55e">+79%</td><td>千问App月活3亿，云连续11季三位数增长</td>
+        </tr>
+        <tr>
+          <td><strong>腾讯</strong></td><td>0700</td><td>~439</td><td>700 买入</td><td>MS 650 / JPM 690</td><td>790 (华兴)</td><td style="color:#22c55e">+80%</td><td>混元+微信生态，PE仅13x历史低位</td>
+        </tr>
+        <tr>
+          <td><strong>智谱AI</strong></td><td>2513</td><td>~1,345</td><td>--</td><td>JPM 950</td><td>1,160 (瑞银)</td><td style="color:#ef4444">-14%</td><td>股价已超所有目标价，纳入恒生科技</td>
+        </tr>
+        <tr>
+          <td><strong>MiniMax</strong></td><td>0100</td><td>~769</td><td>1,018 中性</td><td>--</td><td>1,133 (华泰)</td><td style="color:#22c55e">+47%</td><td>海外收入73%，2029盈亏平衡</td>
+        </tr>
+        <tr>
+          <td><strong>优必选</strong></td><td>9880</td><td>~121</td><td>--</td><td>JPM 169 / BofA 160</td><td>190 (花旗)</td><td style="color:#22c55e">+57%</td><td>Walker出货目标上调至5000台</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 关键发现 -->
+    <h3>🔑 研报关键发现</h3>
+    <div class="highlight-box">
+      <strong>1. 上涨空间最大：</strong>AMD(+140%)、META(+47%)、中科曙光(+42%)、工业富联(+44%)、百度(+76%)、阿里(+79%)、腾讯(+80%)。<br><br>
+      <strong>2. 分歧最大的标的：</strong>
+      · TSLA：$145(JPM) vs $600(Wedbush)，核心争议是"汽车公司还是AI平台"<br>
+      · INTC：$30 vs $150，代工转型能否成功<br>
+      · 英维克：花旗卖出(60元) vs 群益买进(130元)，Q1利润"塌陷"是一时还是趋势<br>
+      · 浪潮信息：高盛降至中性(76.5元) vs 国内券商买入(最高100元)<br><br>
+      <strong>3. GS vs MS 观点差异：</strong>GS更激进(NVDA营收估测高$300亿)，MS更关注安全边际(CRM从$398砍至$287但维持超配)。两者对MSFT($655/$650)和NVDA(均为$285)最一致。<br><br>
+      <strong>4. 已超目标价预警：</strong>中际旭创(股价1103>多数券商目标价)、新易盛(MS给255 vs 股价700)、智谱AI(股价1345>所有目标价)。<br><br>
+      <strong>5. 港股估值洼地：</strong>BAT三家中百度AI收入占比最高(52%)但估值最低(PE 18x)；腾讯PE仅13x为十年低位；阿里25x PE但AI增速最快。
+    </div>
+
+    <h3>📈 盈利预测汇总 (2026E)</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>标的</th><th>2026E营收</th><th>2026E净利</th><th>2026E EPS</th><th>当前PE</th><th>2027E净利增速</th></tr>
+      </thead>
+      <tbody>
+        <tr style="color:var(--accent)"><td colspan="6">🇺🇸 美股</td></tr>
+        <tr><td>NVDA</td><td>$3,800-4,100亿</td><td>--</td><td>GS $9.50 / MS $8.61</td><td>~23x (FY27)</td><td>+30-40%</td></tr>
+        <tr><td>AMD</td><td>~$430亿</td><td>--</td><td>GS ~$7.00</td><td>~26x</td><td>+60%+</td></tr>
+        <tr><td>MSFT</td><td>--</td><td>--</td><td>MS $20.92 (CY27)</td><td>20x (CY27)</td><td>+18%</td></tr>
+        <tr><td>META</td><td>$2,575亿</td><td>--</td><td>MS $36.31 (2027)</td><td>15x (2027E)</td><td>+21%</td></tr>
+        <tr style="color:#f87171"><td colspan="6">🇨🇳 A股</td></tr>
+        <tr><td>寒武纪</td><td>146-237亿</td><td>51-68亿</td><td>12-14元</td><td>~110x</td><td>+65-100%</td></tr>
+        <tr><td>海光信息</td><td>218亿(+52%)</td><td>46.5亿(+83%)</td><td>--</td><td>129x</td><td>+46%</td></tr>
+        <tr><td>中际旭创</td><td>--</td><td>214亿(+98%)</td><td>~19元</td><td>~57x</td><td>+30-60%</td></tr>
+        <tr><td>工业富联</td><td>--</td><td>560-769亿</td><td>--</td><td>~33x</td><td>+42% (GS)</td></tr>
+        <tr><td>金山办公</td><td>--</td><td>25.1亿</td><td>5.42元</td><td>~45x</td><td>+30-40%</td></tr>
+        <tr style="color:#fbbf24"><td colspan="6">🇭🇰 港股</td></tr>
+        <tr><td>百度</td><td>--</td><td>--</td><td>~7.0元 Non-GAAP</td><td>18x</td><td>+11%</td></tr>
+        <tr><td>阿里巴巴</td><td>--</td><td>~1,050-1,100亿</td><td>~5.5元(Non-GAAP)</td><td>~23x</td><td>+15-20%</td></tr>
+        <tr><td>腾讯</td><td>--</td><td>~2,800-2,900亿</td><td>~29-30元(Non-IFRS)</td><td>~14x</td><td>+13-14%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="mt-4 text-sm" style="color:var(--text-dim)">
+      <strong>数据说明：</strong>以上目标价和盈利预测均来自公开券商研报，评级和预测可能随时变动。EPS预测因券商口径不同(Non-GAAP/GAAP/Non-IFRS)可能存在差异。上涨空间基于当前股价与最高目标价计算。不构成投资建议。
+    </p>
+  </div>
+
+
+  <!-- ==================== 第六章：价值评估 ==================== -->
+  <div class="report-card">
+    <h2>💎 第六章 · 投资价值评估框架</h2>
+
+    <h3>6.1 各环节价值属性对比</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>环节</th><th>利润集中度</th><th>增长确定性</th><th>中国替代机会</th><th>整体评级</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>GPU/AI芯片</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>高壁垒高回报，管制风险</td></tr>
+        <tr><td>HBM存储</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐</td><td>最好赛道，但中国无法参与</td></tr>
+        <tr><td>光模块</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>中国最具全球竞争力环节</td></tr>
+        <tr><td>AI服务器</td><td>⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>规模大毛利薄，关注液冷升级</td></tr>
+        <tr><td>液冷散热</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>渗透率从22%→37%，增速最快</td></tr>
+        <tr><td>大模型</td><td>⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>赢家通吃，多数公司不赚钱</td></tr>
+        <tr><td>AI应用（办公）</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>Copilot/金山办公已证明付费</td></tr>
+        <tr><td>AI应用（自动驾驶）</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>中国领先赛道，华为ADS领跑</td></tr>
+        <tr><td>AI应用（机器人）</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>宇树科技代表，硬件优势</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6.2 核心标的一览（截至2026年5月）</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>股票代码</th><th>名称</th><th>市值</th><th>环节</th><th>核心看点</th></tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="5" style="color:var(--accent);font-weight:700">🇺🇸 美股</td></tr>
+        <tr><td>NVDA</td><td>NVIDIA</td><td>$3.2万亿</td><td>GPU芯片</td><td>AI算力绝对龙头，Vera Rubin平台</td></tr>
+        <tr><td>AMD</td><td>AMD</td><td>$1800亿</td><td>GPU芯片</td><td>MI455X追赶，性价比优势</td></tr>
+        <tr><td>MSFT</td><td>Microsoft</td><td>$3.2万亿</td><td>模型+应用</td><td>Copilot年化$58亿，OpenAI最大股东</td></tr>
+        <tr><td>GOOGL</td><td>Alphabet</td><td>$2.4万亿</td><td>模型+应用</td><td>Gemini+TPU双芯片，AI Overviews 20亿MAU</td></tr>
+        <tr><td>META</td><td>Meta</td><td>$1.6万亿</td><td>模型+应用</td><td>Llama 4开源，AI广告变现</td></tr>
+        <tr><td>TSLA</td><td>Tesla</td><td>$1.5万亿</td><td>自动驾驶+机器人</td><td>FSD+Optimus双飞轮</td></tr>
+        <tr><td colspan="5" style="color:#f87171;font-weight:700">🇨🇳 A股</td></tr>
+        <tr><td>688256</td><td>寒武纪</td><td>~8000亿</td><td>AI芯片</td><td>思元590国产替代核心，首度扭亏</td></tr>
+        <tr><td>688041</td><td>海光信息</td><td>~7200亿</td><td>AI芯片</td><td>兼容CUDA生态，国产营收利润双冠</td></tr>
+        <tr><td>300308</td><td>中际旭创</td><td>~万亿</td><td>光模块</td><td>800G全球第一，1.6T率先出货</td></tr>
+        <tr><td>300502</td><td>新易盛</td><td>~6100亿</td><td>光模块</td><td>营收+187%爆发增长</td></tr>
+        <tr><td>601138</td><td>工业富联</td><td>~1.3万亿</td><td>AI服务器</td><td>全球AI服务器代工份额超40%</td></tr>
+        <tr><td>002230</td><td>科大讯飞</td><td>~1170亿</td><td>大模型+应用</td><td>星火全国产算力，教育赛道优势</td></tr>
+        <tr><td>002837</td><td>英维克</td><td>~955亿</td><td>液冷散热</td><td>国内液冷市占60%+，获谷歌认证</td></tr>
+        <tr><td>300624</td><td>万兴科技</td><td>~150亿</td><td>AI应用</td><td>视频/绘图AI产品线，海外收入高</td></tr>
+        <tr><td colspan="5" style="color:#fbbf24;font-weight:700">🇭🇰 港股</td></tr>
+        <tr><td>2513</td><td>智谱AI</td><td>>511亿港元</td><td>大模型</td><td>全球大模型第一股，盈利能力待验证</td></tr>
+        <tr><td>0100</td><td>MiniMax</td><td>~500亿港元</td><td>大模型</td><td>73%收入来自海外，版权诉讼风险</td></tr>
+        <tr><td>09880</td><td>优必选</td><td>~400亿港元</td><td>机器人</td><td>Walker系列订单11亿，仍大幅亏损</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 风险提示 ==================== -->
+  <div class="report-card" style="border-color:#ef4444">
+    <h2 style="color:#ef4444">⚠️ 风险提示</h2>
+    <div class="highlight-box" style="border-left-color:#ef4444">
+      <strong>1. 地缘政治风险：</strong>美国对华芯片出口管制持续升级，若HBM/先进制程进一步收紧，将直接冲击中国AI算力供应。<br><br>
+      <strong>2. 估值泡沫风险：</strong>AI板块部分标的估值已透支未来2-3年业绩（如寒武纪PE超1000倍），一旦业绩不及预期调整幅度可能较大。<br><br>
+      <strong>3. 技术路线风险：</strong>CPO/LPO替代传统光模块、MoE架构替代Dense模型、液冷替代风冷——技术迭代可能颠覆现有格局。<br><br>
+      <strong>4. 商业化不及预期：</strong>多数中国大模型公司仍处于大幅亏损状态（科大讯飞Q1扣非亏损4.3亿，智谱三年半累亏62.48亿），盈利路径尚不清晰。<br><br>
+      <strong>5. 开源生态冲击：</strong>DeepSeek等开源模型免费可用，可能冲击闭源模型的定价权和商业逻辑。
+    </div>
+    <p class="mt-4 text-sm" style="color:var(--text-dim)">
+      <strong>免责声明：</strong>本报告仅供研究参考，不构成任何投资建议。股市有风险，投资需谨慎。报告数据来源包括东方财富、Wind、公司财报、公开融资信息等，截至2026年5月，部分未上市公司估值为媒体报道值，可能与实际存在偏差。
+    </p>
+  </div>
+
+  <div class="text-center py-8 text-sm" style="color:var(--text-dim)">
+    <p>🤖 AI产业链深度调研报告 · 2026年5月 · Generated with Research</p>
+    <p class="mt-1">数据来源：东方财富、Wind、Google Finance、公司公告、公开媒体报道</p>
+  </div>
+</div>
+
+</body>
+</html>
